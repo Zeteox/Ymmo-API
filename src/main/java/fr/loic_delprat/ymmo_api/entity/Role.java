@@ -18,6 +18,4 @@ public class Role extends BaseEntity {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, unique = true)
     private RoleName name;
-
-    private String description;
 }
