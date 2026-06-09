@@ -1,6 +1,6 @@
 package fr.loic_delprat.ymmo_api.service.impl;
 
-import fr.loic_delprat.ymmo_api.controller.RegisterRequest;
+import fr.loic_delprat.ymmo_api.dto.request.RegisterRequest;
 import fr.loic_delprat.ymmo_api.dto.request.LoginRequest;
 import fr.loic_delprat.ymmo_api.dto.response.AuthResponse;
 import fr.loic_delprat.ymmo_api.entity.Agency;
