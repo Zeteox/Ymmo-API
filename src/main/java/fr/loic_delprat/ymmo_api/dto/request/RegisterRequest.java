@@ -1,4 +1,4 @@
-package fr.loic_delprat.ymmo_api.controller;
+package fr.loic_delprat.ymmo_api.dto.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
