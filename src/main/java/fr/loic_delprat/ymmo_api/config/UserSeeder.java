@@ -14,7 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
-@Order(2)
+@Order(3)
 @RequiredArgsConstructor
 public class UserSeeder implements CommandLineRunner {
     private final UserRepository userRepository;
@@ -47,6 +47,7 @@ public class UserSeeder implements CommandLineRunner {
                         .password(passwordEncoder.encode(rawPassword))
                         .role(role)
                         .agency(agency)
+                        .isActive(true)
                         .build()
         );
     }

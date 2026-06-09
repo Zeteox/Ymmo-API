@@ -33,15 +33,15 @@ public class Building extends BaseEntity {
     @JoinColumn(name = "agency_id", nullable = false)
     private Agency agency;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private BuildingType type;
+    @ManyToOne
+    @JoinColumn(name = "building_type_id", nullable = false)
+    private BuildingType buildingType;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private BuildingState state;
+    @ManyToOne
+    @JoinColumn(name = "building_state_id", nullable = false)
+    private BuildingState buildingState;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private ZoneName zone;
+    @ManyToOne
+    @JoinColumn(name = "zone_id", nullable = false)
+    private Zone zone;
 }

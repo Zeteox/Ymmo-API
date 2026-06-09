@@ -19,7 +19,7 @@ public class Agency extends BaseEntity {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private CityName city;
+    @ManyToOne
+    @JoinColumn(name = "city_id", nullable = false)
+    private City city;
 }
