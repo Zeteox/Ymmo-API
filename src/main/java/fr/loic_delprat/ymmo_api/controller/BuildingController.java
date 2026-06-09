@@ -8,6 +8,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class BuildingController {
     private final BuildingService buildingService;
 
     @PostMapping
+    @PreAuthorize("hasRole('ROLE_AGENT')")
     public ResponseEntity<BuildingResponse> createBuilding(@Valid @RequestBody CreateBuildingRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED).body(buildingService.createBuilding(request));
     }
@@ -36,6 +38,7 @@ public class BuildingController {
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_AGENT')")
     public ResponseEntity<BuildingResponse> updateBuilding(
             @PathVariable Long id,
             @Valid @RequestBody UpdateBuildingRequest request) {
@@ -43,6 +46,7 @@ public class BuildingController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_AGENT')")
     public ResponseEntity<Void> deleteBuilding(@PathVariable Long id) {
         buildingService.deleteBuilding(id);
         return ResponseEntity.noContent().build();
