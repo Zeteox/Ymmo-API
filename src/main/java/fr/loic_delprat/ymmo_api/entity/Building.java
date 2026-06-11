@@ -59,4 +59,8 @@ public class Building extends BaseEntity {
     @OneToMany(mappedBy = "building", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private List<Transaction> transactions = new ArrayList<>();
+
+    @OneToMany(mappedBy = "building", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    private List<ContactDemand> demands = new ArrayList<>();
 }

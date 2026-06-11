@@ -25,7 +25,7 @@ public class UserFavoriteBuildingServiceImpl implements UserFavoriteBuildingServ
     @Override
     public void addFavorite(Long userId, Long buildingId) {
         if (userFavoriteBuildingRepository.existsByUserIdAndBuildingId(userId, buildingId)) {
-            return; // already a favorite, idempotent
+            return;
         }
 
         User user = userRepository.findById(userId)

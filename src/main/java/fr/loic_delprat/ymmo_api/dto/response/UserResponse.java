@@ -15,4 +15,5 @@ public class UserResponse {
     private String phone;
     private Boolean isActive;
     private String role;
+    private Long agencyId;
 }

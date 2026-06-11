@@ -56,4 +56,8 @@ public class User extends BaseEntity{
     @OneToMany(mappedBy = "agent", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private List<Transaction> agentTransactions = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    private List<ContactDemand> demands = new ArrayList<>();
 }
