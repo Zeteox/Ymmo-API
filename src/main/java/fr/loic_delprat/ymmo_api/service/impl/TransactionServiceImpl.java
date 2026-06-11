@@ -122,6 +122,7 @@ public class TransactionServiceImpl implements TransactionService {
                 .agencyId(transaction.getAgency().getId())
                 .agencyName(transaction.getAgency().getName())
                 .amount(transaction.getAmount())
+                .date(transaction.getCreatedAt().toString())
                 .build();
     }
 }

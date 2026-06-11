@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "buildings")
 @Getter
@@ -44,4 +47,16 @@ public class Building extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "zone_id", nullable = false)
     private Zone zone;
+
+    @OneToMany(mappedBy = "building", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    private List<BuildingPicture> pictures = new ArrayList<>();
+
+    @OneToMany(mappedBy = "building", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    private List<UserFavoriteBuilding> favorites = new ArrayList<>();
+
+    @OneToMany(mappedBy = "building", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    private List<Transaction> transactions = new ArrayList<>();
 }

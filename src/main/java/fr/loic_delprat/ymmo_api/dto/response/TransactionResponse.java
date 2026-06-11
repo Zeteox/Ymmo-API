@@ -18,4 +18,5 @@ public class TransactionResponse {
     private Long agencyId;
     private String agencyName;
     private float amount;
+    private String date;
 }

@@ -15,7 +15,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/buildings/{buildingId}/pictures")
 @RequiredArgsConstructor
-@CrossOrigin
 public class BuildingPictureController {
 
     private final BuildingPictureService buildingPictureService;

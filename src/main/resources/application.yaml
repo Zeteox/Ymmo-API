@@ -4,8 +4,8 @@ spring:
 
   datasource:
     url: jdbc:postgresql://localhost:5432/ymmo
-    username: user
-    password: user
+    username: postgres
+    password: 9126
     driver-class-name: org.postgresql.Driver
 
   jpa:

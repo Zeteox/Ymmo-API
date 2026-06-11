@@ -75,6 +75,14 @@ public class BuildingServiceImpl implements BuildingService {
     }
 
     @Override
+    public List<BuildingResponse> getBuildingsByAgencyId(Long agencyId) {
+        return buildingRepository.findByAgencyId(agencyId)
+                .stream()
+                .map(this::mapToResponse)
+                .toList();
+    }
+
+    @Override
     public BuildingResponse updateBuilding(Long id, UpdateBuildingRequest request) {
         Building building = buildingRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Building not found with id: " + id));

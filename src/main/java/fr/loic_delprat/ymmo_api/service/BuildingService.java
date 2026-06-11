@@ -10,6 +10,7 @@ public interface BuildingService {
     BuildingResponse createBuilding(CreateBuildingRequest request);
     BuildingResponse getBuildingById(Long id);
     List<BuildingResponse> getAllBuildings();
+    List<BuildingResponse> getBuildingsByAgencyId(Long agencyId);
     BuildingResponse updateBuilding(Long id, UpdateBuildingRequest request);
     void deleteBuilding(Long id);
 }

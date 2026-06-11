@@ -16,7 +16,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/buildings")
 @RequiredArgsConstructor
-@CrossOrigin
 public class BuildingController {
 
     private final BuildingService buildingService;
@@ -30,6 +29,11 @@ public class BuildingController {
     @GetMapping("/{id}")
     public ResponseEntity<BuildingResponse> getBuildingById(@PathVariable Long id) {
         return ResponseEntity.ok(buildingService.getBuildingById(id));
+    }
+
+    @GetMapping("/agency/{agencyId}")
+    public ResponseEntity<List<BuildingResponse>> getBuildingsByAgencyId(@PathVariable Long agencyId) {
+        return ResponseEntity.ok(buildingService.getBuildingsByAgencyId(agencyId));
     }
 
     @GetMapping

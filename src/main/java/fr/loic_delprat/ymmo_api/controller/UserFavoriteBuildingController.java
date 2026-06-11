@@ -12,7 +12,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/users/{userId}/favorites")
 @RequiredArgsConstructor
-@CrossOrigin
 public class UserFavoriteBuildingController {
 
     private final UserFavoriteBuildingService userFavoriteBuildingService;

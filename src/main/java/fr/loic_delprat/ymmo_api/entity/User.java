@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -42,4 +44,16 @@ public class User extends BaseEntity{
     @ManyToOne
     @JoinColumn(name = "agency_id", nullable = false)
     private Agency agency;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    private List<UserFavoriteBuilding> favorites = new ArrayList<>();
+
+    @OneToMany(mappedBy = "buyer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    private List<Transaction> buyerTransactions = new ArrayList<>();
+
+    @OneToMany(mappedBy = "agent", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    private List<Transaction> agentTransactions = new ArrayList<>();
 }
