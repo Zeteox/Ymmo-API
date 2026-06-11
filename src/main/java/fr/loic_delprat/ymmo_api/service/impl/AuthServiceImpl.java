@@ -82,6 +82,8 @@ public class AuthServiceImpl implements AuthService {
                 .isActive(true)
                 .build();
 
+        userRepository.save(user);
+
         return new AuthResponse(
                 token,
                 "Bearer",
