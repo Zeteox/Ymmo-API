@@ -3,11 +3,7 @@ package fr.loic_delprat.ymmo_api.service.impl;
 import fr.loic_delprat.ymmo_api.dto.request.CreateBuildingRequest;
 import fr.loic_delprat.ymmo_api.dto.request.UpdateBuildingRequest;
 import fr.loic_delprat.ymmo_api.dto.response.BuildingResponse;
-import fr.loic_delprat.ymmo_api.entity.Agency;
-import fr.loic_delprat.ymmo_api.entity.Building;
-import fr.loic_delprat.ymmo_api.entity.BuildingState;
-import fr.loic_delprat.ymmo_api.entity.BuildingType;
-import fr.loic_delprat.ymmo_api.entity.Zone;
+import fr.loic_delprat.ymmo_api.entity.*;
 import fr.loic_delprat.ymmo_api.exeption.ResourceNotFoundException;
 import fr.loic_delprat.ymmo_api.repository.AgencyRepository;
 import fr.loic_delprat.ymmo_api.repository.BuildingRepository;
@@ -35,14 +31,14 @@ public class BuildingServiceImpl implements BuildingService {
         Agency agency = agencyRepository.findById(request.getAgencyId())
                 .orElseThrow(() -> new ResourceNotFoundException("Agency not found with id: " + request.getAgencyId()));
 
-        BuildingType buildingType = buildingTypeRepository.findById(request.getBuildingTypeId())
-                .orElseThrow(() -> new ResourceNotFoundException("BuildingType not found with id: " + request.getBuildingTypeId()));
+        BuildingType buildingType = buildingTypeRepository.findByName(BuildingTypeName.valueOf(request.getBuildingType()))
+                .orElseThrow(() -> new ResourceNotFoundException("BuildingType not found with id: " + request.getBuildingType()));
 
-        BuildingState buildingState = buildingStateRepository.findById(request.getBuildingStateId())
-                .orElseThrow(() -> new ResourceNotFoundException("BuildingState not found with id: " + request.getBuildingStateId()));
+        BuildingState buildingState = buildingStateRepository.findByName(BuildingStateName.valueOf(request.getBuildingState()))
+                .orElseThrow(() -> new ResourceNotFoundException("BuildingState not found with id: " + request.getBuildingState()));
 
-        Zone zone = zoneRepository.findById(request.getZoneId())
-                .orElseThrow(() -> new ResourceNotFoundException("Zone not found with id: " + request.getZoneId()));
+        Zone zone = zoneRepository.findByName(ZoneName.valueOf(request.getZone()))
+                .orElseThrow(() -> new ResourceNotFoundException("Zone not found with id: " + request.getZone()));
 
         Building building = Building.builder()
                 .name(request.getName())
@@ -98,21 +94,21 @@ public class BuildingServiceImpl implements BuildingService {
             building.setAgency(agency);
         }
 
-        if (request.getBuildingTypeId() != null) {
-            BuildingType buildingType = buildingTypeRepository.findById(request.getBuildingTypeId())
-                    .orElseThrow(() -> new ResourceNotFoundException("BuildingType not found with id: " + request.getBuildingTypeId()));
+        if (request.getBuildingType() != null) {
+            BuildingType buildingType = buildingTypeRepository.findByName(BuildingTypeName.valueOf(request.getBuildingType()))
+                    .orElseThrow(() -> new ResourceNotFoundException("BuildingType not found with id: " + request.getBuildingType()));
             building.setBuildingType(buildingType);
         }
 
-        if (request.getBuildingStateId() != null) {
-            BuildingState buildingState = buildingStateRepository.findById(request.getBuildingStateId())
-                    .orElseThrow(() -> new ResourceNotFoundException("BuildingState not found with id: " + request.getBuildingStateId()));
+        if (request.getBuildingState() != null) {
+            BuildingState buildingState = buildingStateRepository.findByName(BuildingStateName.valueOf(request.getBuildingState()))
+                    .orElseThrow(() -> new ResourceNotFoundException("BuildingState not found with id: " + request.getBuildingState()));
             building.setBuildingState(buildingState);
         }
 
-        if (request.getZoneId() != null) {
-            Zone zone = zoneRepository.findById(request.getZoneId())
-                    .orElseThrow(() -> new ResourceNotFoundException("Zone not found with id: " + request.getZoneId()));
+        if (request.getZone() != null) {
+            Zone zone = zoneRepository.findByName(ZoneName.valueOf(request.getZone()))
+                    .orElseThrow(() -> new ResourceNotFoundException("Zone not found with id: " + request.getZone()));
             building.setZone(zone);
         }
 
@@ -137,6 +133,7 @@ public class BuildingServiceImpl implements BuildingService {
                 .type(building.getBuildingType().getName().name())
                 .state(building.getBuildingState().getName().name())
                 .zone(building.getZone().getName().name())
+                .agencyId(building.getAgency().getId())
                 .build();
     }
 }

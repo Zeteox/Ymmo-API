@@ -21,6 +21,17 @@ spring:
     init:
       mode: never
 
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+logging:
+  level:
+    root: INFO
+    fr.loic_delprat.ymmo_api: DEBUG
+    org.springframework.web: DEBUG
+
 server:
   port: 8080
 

@@ -16,5 +16,6 @@ public class BuildingResponse {
     private String type;
     private String state;
     private String zone;
+    private Long agencyId;
 }
 

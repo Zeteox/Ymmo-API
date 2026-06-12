@@ -11,4 +11,6 @@ public class BuildingPictureResponse {
     private Long id;
     private String path;
     private Long buildingId;
+    private String contentType;
+    private String data;
 }

@@ -21,9 +21,9 @@ public class UpdateBuildingRequest {
 
     private Long agencyId;
 
-    private Long buildingTypeId;
+    private String buildingType;
 
-    private Long buildingStateId;
+    private String buildingState;
 
-    private Long zoneId;
+    private String zone;
 }

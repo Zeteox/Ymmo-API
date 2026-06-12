@@ -28,12 +28,12 @@ public class CreateBuildingRequest {
     @NotNull
     private Long agencyId;
 
-    @NotNull
-    private Long buildingTypeId;
+    @NotBlank
+    private String buildingType;
 
-    @NotNull
-    private Long buildingStateId;
+    @NotBlank
+    private String buildingState;
 
-    @NotNull
-    private Long zoneId;
+    @NotBlank
+    private String zone;
 }
