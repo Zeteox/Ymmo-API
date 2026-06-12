@@ -2,7 +2,6 @@ package fr.loic_delprat.ymmo_api.controller;
 
 import fr.loic_delprat.ymmo_api.dto.response.UserResponse;
 import fr.loic_delprat.ymmo_api.service.UserService;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

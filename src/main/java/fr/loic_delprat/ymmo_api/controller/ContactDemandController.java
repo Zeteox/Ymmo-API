@@ -1,9 +1,7 @@
 package fr.loic_delprat.ymmo_api.controller;
 
 import fr.loic_delprat.ymmo_api.dto.request.CreateContactDemandRequest;
-import fr.loic_delprat.ymmo_api.dto.response.BuildingPictureResponse;
 import fr.loic_delprat.ymmo_api.dto.response.ContactDemandResponse;
-import fr.loic_delprat.ymmo_api.service.BuildingPictureService;
 import fr.loic_delprat.ymmo_api.service.ContactDemandService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

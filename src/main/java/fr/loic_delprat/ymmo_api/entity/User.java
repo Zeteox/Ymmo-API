@@ -3,7 +3,6 @@ package fr.loic_delprat.ymmo_api.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 

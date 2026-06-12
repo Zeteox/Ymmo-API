@@ -2,7 +2,6 @@ package fr.loic_delprat.ymmo_api.config;
 
 import fr.loic_delprat.ymmo_api.entity.BuildingState;
 import fr.loic_delprat.ymmo_api.entity.BuildingStateName;
-import fr.loic_delprat.ymmo_api.entity.BuildingTypeName;
 import fr.loic_delprat.ymmo_api.repository.BuildingStateRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;

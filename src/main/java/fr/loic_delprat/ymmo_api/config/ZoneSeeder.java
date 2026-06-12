@@ -1,6 +1,5 @@
 package fr.loic_delprat.ymmo_api.config;
 
-import fr.loic_delprat.ymmo_api.entity.BuildingTypeName;
 import fr.loic_delprat.ymmo_api.entity.Zone;
 import fr.loic_delprat.ymmo_api.entity.ZoneName;
 import fr.loic_delprat.ymmo_api.repository.ZoneRepository;

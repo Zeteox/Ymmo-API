@@ -3,8 +3,6 @@ package fr.loic_delprat.ymmo_api.config;
 import fr.loic_delprat.ymmo_api.entity.*;
 import fr.loic_delprat.ymmo_api.repository.AgencyRepository;
 import fr.loic_delprat.ymmo_api.repository.CityRepository;
-import fr.loic_delprat.ymmo_api.repository.RoleRepository;
-import fr.loic_delprat.ymmo_api.repository.ZoneRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
