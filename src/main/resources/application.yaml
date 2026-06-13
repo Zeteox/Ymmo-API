@@ -3,9 +3,9 @@ spring:
     name: ymmo-api
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/ymmo
-    username: postgres
-    password: 9126
+    url: jdbc:postgresql://localhost:5432/${DATABASE_NAME}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWD}
     driver-class-name: org.postgresql.Driver
 
   jpa:
