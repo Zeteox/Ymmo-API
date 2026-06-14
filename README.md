@@ -58,6 +58,15 @@ http://localhost:8080/api
 git clone https://github.com/Zeteox/Ymmo-API.git
 cd Ymmo-API
 
+# Ajout des variable d'environnement
+# Windows
+$env:DATABASE_NAME="db_name";
+$env:DATABASE_USER="db_user";
+$env:DATABASE_PASSWD="db_password";
+
+#Linux
+source .env
+
 # Compiler et lancer
 ./mvnw spring-boot:run
 ```
@@ -102,7 +111,7 @@ POST /api/auth/login
 Content-Type: application/json
 
 {
-  "email": "defaultagent@gmail.fr", # Agent par défault /!\ A CHANGER
+  "email": "defaultagent@gmail.com", # Agent par défault /!\ A CHANGER
   "password": "default"
 }
 ```
